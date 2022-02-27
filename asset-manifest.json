@@ -1,16 +1,16 @@
 {
   "files": {
-    "main.css": "/numeric_system_conversor_react/static/css/main.ea6325a4.css",
-    "main.js": "/numeric_system_conversor_react/static/js/main.a53530fb.js",
+    "main.css": "/numeric_system_conversor_react/static/css/main.155f3646.css",
+    "main.js": "/numeric_system_conversor_react/static/js/main.5047e022.js",
     "static/js/787.9bb39a53.chunk.js": "/numeric_system_conversor_react/static/js/787.9bb39a53.chunk.js",
     "static/media/logo.svg": "/numeric_system_conversor_react/static/media/logo.6ce24c58023cc2f8fd88fe9d219db6c6.svg",
     "index.html": "/numeric_system_conversor_react/index.html",
-    "main.ea6325a4.css.map": "/numeric_system_conversor_react/static/css/main.ea6325a4.css.map",
-    "main.a53530fb.js.map": "/numeric_system_conversor_react/static/js/main.a53530fb.js.map",
+    "main.155f3646.css.map": "/numeric_system_conversor_react/static/css/main.155f3646.css.map",
+    "main.5047e022.js.map": "/numeric_system_conversor_react/static/js/main.5047e022.js.map",
     "787.9bb39a53.chunk.js.map": "/numeric_system_conversor_react/static/js/787.9bb39a53.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.ea6325a4.css",
-    "static/js/main.a53530fb.js"
+    "static/css/main.155f3646.css",
+    "static/js/main.5047e022.js"
   ]
 }
