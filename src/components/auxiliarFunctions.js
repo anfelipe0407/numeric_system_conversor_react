@@ -1,4 +1,4 @@
-import { DIGITS } from "./auxiliarConsts";
+import { DIGITS, DIGITS_ARRAY } from "./auxiliarConsts";
 
 export const convertDecimalToNBase = (number, base) => {
     const arrayNum = dividirNumPartes(number);
@@ -72,6 +72,27 @@ export const convertNBaseToDecimal = (number, base) => {
     
     return resultado
   }
+
+export const checkNumberBase = (number, base) => {
+  let digistInBase = [];
+  const numberArray = number.toString().split("");
+  let isValid = true;
+
+  for (let i = 0; i < base; i++) {
+    digistInBase.push(DIGITS_ARRAY[i]);
+  }
+
+  digistInBase = digistInBase.map(e => ""+e);
+
+  numberArray.forEach(elem => {
+    if(elem !== "." && !digistInBase.includes(elem)){
+      isValid = false;
+    }
+  });
+
+  return isValid;
+}
+
 function dividirNumPartes(number){
     const arrayNum = number.toString().split(".");
     if(!arrayNum[1]) arrayNum[1] = 0;

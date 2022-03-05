@@ -28,6 +28,10 @@
     cursor: pointer;
 }
 
+.disableCalcularBtn{
+    cursor: default;
+}
+
 .calcularBtn:hover{
     background-color: #1813fb;
     color: white;

@@ -3,15 +3,27 @@ import InputNumeroComponent from '../inputnumero/InputNumeroComponent';
 import ResultadoComponent from '../resultado/ResultadoComponent';
 import './mainComponent.css';
 
-import {convertDecimalToNBase, convertNBaseToDecimal} from '../auxiliarFunctions';
+import {convertDecimalToNBase, convertNBaseToDecimal, checkNumberBase} from '../auxiliarFunctions';
 
 const MainComponent = () => {
 
-    const [firstNumber, setFirstNumber] = useState({value: 0, base: 10});
-    const [secondNumber, setSecondNumber] = useState({value: 0, base: 10});
+    const [firstNumber, setFirstNumber] = useState({value: 0, base: 10, isValid: true});
+    const [secondNumber, setSecondNumber] = useState({value: 0, base: 10, isValid:true});
     
     const [operation, setOperation] = useState("add");
     const [result, setResult] = useState({value: 0, base: 10});
+
+
+    useEffect(() => {
+      const valid = checkNumberBase(firstNumber.value, firstNumber.base);
+      setFirstNumber({...firstNumber, isValid: valid})
+    }, [firstNumber.value, firstNumber.base])
+
+    useEffect(() => {
+      const valid = checkNumberBase(secondNumber.value, secondNumber.base);
+      setSecondNumber({...secondNumber, isValid: valid})
+    }, [secondNumber.value, secondNumber.base])
+    
 
     const calculateResult = () => {
         let num1 = firstNumber.value;
@@ -61,7 +73,7 @@ const MainComponent = () => {
         <h3>Conversor y calculadora de sistemas numéricos de diferentes bases</h3>
         <h3>Autor: @anfelipe0407 (github)</h3>
 
-        <InputNumeroComponent updateNumber={(value) => setFirstNumber({...firstNumber, value})} updateBase={(base) => setFirstNumber({...firstNumber, base})} />
+        <InputNumeroComponent numberIsValid={firstNumber.isValid} updateNumber={(value) => setFirstNumber({...firstNumber, value})} updateBase={(base) => setFirstNumber({...firstNumber, base})} />
 
         <select className="operation" id="operation" onChange={event => setOperation(event.target.value)}>
             <option value="add" selected>+ Suma</option>
@@ -70,9 +82,9 @@ const MainComponent = () => {
             <option value="div">/ División</option>
         </select>
 
-        <InputNumeroComponent updateNumber={(value) => setSecondNumber({...secondNumber, value})} updateBase={(base) => setSecondNumber({...secondNumber, base})} />
+        <InputNumeroComponent numberIsValid={secondNumber.isValid} updateNumber={(value) => setSecondNumber({...secondNumber, value})} updateBase={(base) => setSecondNumber({...secondNumber, base})} />
 
-        <button className='calcularBtn' onClick={calculateResult}>CALCULAR</button>
+        <button disabled={!firstNumber.isValid || !secondNumber.isValid} className="calcularBtn" onClick={calculateResult}>CALCULAR</button>
 
         <ResultadoComponent value={result.value} base={result.base} />
       </div>
