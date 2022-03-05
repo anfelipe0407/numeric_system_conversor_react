@@ -10,7 +10,7 @@ const InputNumeroComponent = ({updateNumber, updateBase, numberIsValid}) => {
     return (
         <div className='container'>
             <div className="inputContainer">
-                <input type="text" placeholder='0' className="numero" id="numero" onChange={event => updateNumber(event.target.value.toUpperCase())} />
+                <input type="text" placeholder='0' className="numero" id="numero" onChange={event => updateNumber(event.target.value.toUpperCase())} autoComplete="off" />
                 <select className='base' id="base" onChange={event => updateBase(BASES[event.target.value])}>
                     <option value="binario">2 (binario)</option>
                     <option value="ternario">3 (ternario)</option>
